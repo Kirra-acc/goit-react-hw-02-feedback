@@ -4,7 +4,7 @@ import s from './Statistics.module.css';
 export class Statistics extends React.Component {
   countPositiveFeedbackPercentage = (good, neutral, bad) => {
     const total = this.props.countTotalFeedback(good, neutral, bad);
-    return (total > 0 ? (good / total) * 100 : 0).toFixed(2);
+    return (total > 0 ? (good / total) * 100 : 0).toFixed();
   };
   render() {
     const { statData, countTotalFeedback } = this.props;
