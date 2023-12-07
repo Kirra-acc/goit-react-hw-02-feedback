@@ -1,0 +1,25 @@
+.feedbackWrapper {
+  /* background-color: pink; */
+}
+
+.feedbackButtons {
+  display: flex;
+  gap: 100px;
+  align-items: center;
+  justify-content: center;
+}
+button {
+  width: 100px;
+  padding: 5px 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  background-color: #fff;
+  border: 2px solid rgb(229, 103, 103);
+  color: #333;
+  cursor: pointer;
+  transition: background-color 200ms linear, color 200ms linear;
+}
+button:hover {
+  background-color: rgb(229, 103, 103);
+  color: #eee;
+}
