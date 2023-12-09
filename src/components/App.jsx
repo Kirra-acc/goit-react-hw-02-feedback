@@ -14,8 +14,12 @@ export class App extends React.Component {
   addFb = type => {
     this.setState(prevState => ({ [type]: prevState[type] + 1 }));
   };
-  countTotalFeedback = (good, neutral, bad) => {
-    return good + neutral + bad;
+  countTotalFeedback = () => {
+    return (this.state.good + this.state.neutral + this.state.bad);
+  };
+  countPositiveFeedbackPercentage = () => {
+    const total = this.countTotalFeedback();
+    return (total > 0 ? (this.state.good / total) * 100 : 0).toFixed();
   };
 
   render() {
@@ -35,11 +39,12 @@ export class App extends React.Component {
           <FeedbackOptions addFb={this.addFb} />
         </Section>
 
-        {totalFb(this.state.good, this.state.neutral, this.state.bad) > 0 ? (
+        {totalFb() > 0 ? (
           <Section title="Statistics">
             <Statistics
               statData={this.state}
               countTotalFeedback={this.countTotalFeedback}
+              countPositiveFeedbackPercentage={this.countPositiveFeedbackPercentage}
             />
           </Section>
         ) : (
